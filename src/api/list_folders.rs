@@ -17,6 +17,13 @@ pub struct Response {
 pub async fn list_folders(
     config: Extension<Config>,
 ) -> Result<Json<Vec<Response>>, (StatusCode, String)> {
+    std::fs::create_dir_all(&config.root_folder_directory).map_err(|e| {
+        (
+            StatusCode::INTERNAL_SERVER_ERROR,
+            format!("Failed to create directory: {:?}", e),
+        )
+    })?;
+
     let mut read_dir = tokio::fs::read_dir(&config.root_folder_directory)
         .await
         .map_err(|e| {
