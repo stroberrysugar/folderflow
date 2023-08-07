@@ -6,9 +6,9 @@ Let's you upload folders, run scripts on them, and download them back as ZIP fil
 ## Features
 1. Upload folders
 2. Download folders as ZIP files
-3. Get list of current folders
+3. Get list of current folders (and displays the time of creation)
 4. Get list of scripts
-5. Execute a script in a specific folder
+5. Execute a script in a specific folder (and displays stdout/stderr)
 
 NOTE: You will only be able to define a script in the config file as described below.
 
