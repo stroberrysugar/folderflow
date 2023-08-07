@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Folderflow</title>
+    <link rel="stylesheet" href="/index.css" />
+</head>
+
+<body>
+    <h3>Upload folder</h3>
+    <div style="margin-bottom: 0.5rem;">
+        <input id="fileInput" type="file" webkitdirectory directory multiple />
+    </div>
+    <div style="margin-bottom: 0.5rem;">
+        <input id="folderName" type="text" placeholder="Folder name (optional)" pattern="[^\\/:&quot;*?<>|]*"
+            title="Invalid characters in folder name" />
+    </div>
+    <div><button onclick="uploadFolderContents()">Upload Folder</button></div>
+
+    <h3>Download folder (as a zip)</h3>
+    <div style="margin-bottom: 0.5rem;">
+        <select id="folderChoice" autocomplete="off">
+        </select>
+    </div>
+    <div><button id="downloadFolderButton" onclick="downloadFolderContents()">Download folder</button></div>
+
+
+    <h3>Execute script</h3>
+    <div style="margin-bottom: 0.5rem;">
+        <select id="scriptChoice" autocomplete="off" onchange="updateCommandRun()">
+        </select>
+    </div>
+    <div style="margin-bottom: 0.5rem;">
+        <select id="scriptFolderChoice" autocomplete="off" onchange="updateCommandRun()">
+        </select>
+    </div>
+    <div style="margin-bottom: 0.5rem;">
+        The command run will be: <code id="commandRun"></code>
+    </div>
+    <div style="margin-bottom: 0.5rem;">
+        Note that the script will also run in the folder directory.
+    </div>
+    <div style="margin-bottom: 0.5rem;"><button id="executeScriptButton" onclick="executeScript()">Execute
+            script</button></div>
+
+    <div style="margin-bottom: 0.5rem;">
+        Command exit status: <code id="commandOutputExitStatus"></code>
+    </div>
+
+    <div style="margin-bottom: 0.5rem;">
+        Command output (stdout):
+    </div>
+    <div style="margin-bottom: 0.5rem;">
+        <code id="commandOutputStdout" style="background-color: #e8e8e8; display: block; width: 100%;">
+            &nbsp;
+         </code>
+    </div>
+
+    <div style="margin-bottom: 0.5rem;">
+        Command output (stderr):
+    </div>
+    <div style="margin-bottom: 0.5rem;">
+        <code id="commandOutputStderr" style="background-color: #e8e8e8; display: block; width: 100%;">
+            &nbsp;
+         </code>
+    </div>
+
+    <script src="/index.js"></script>
+</body>
+
+</html>

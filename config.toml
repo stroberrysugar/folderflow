@@ -1,0 +1,16 @@
+listen_address = "0.0.0.0:8082"              # http listen address
+root_folder_directory = "/projects/folderflow/uploaded_folders" # where will the uploaded folders be?
+temp_zip_directory = "/tmp"                  # when downloading folders, a temporary ZIP file is created in this directory
+max_upload_size_in_bytes = 4294967296        # maximum folder upload size
+
+# just add scripts in this pattern
+
+[[script_config]]
+id = 0
+friendly_name = "script 1"
+path_to_script = "/home/user/testscript.sh"
+
+[[script_config]]
+id = 1
+friendly_name = "script 2"
+path_to_script = "/home/user/testscript2.sh"
